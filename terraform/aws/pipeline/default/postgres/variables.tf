@@ -51,34 +51,6 @@ variable "iglu_super_api_key" {
   sensitive   = true
 }
 
-variable "pipeline_db_name" {
-  description = "The name of the database to connect to"
-  type        = string
-}
-
-variable "pipeline_db_username" {
-  description = "The username to use to connect to the database"
-  type        = string
-}
-
-variable "pipeline_db_password" {
-  description = "The password to use to connect to the database"
-  type        = string
-  sensitive   = true
-}
-
-variable "pipeline_db_publicly_accessible" {
-  description = "Whether to make the Postgres RDS instance accessible over the internet"
-  type        = bool
-  default     = false
-}
-
-variable "pipeline_db_ip_allowlist" {
-  description = "An optional list of CIDR ranges to allow traffic from"
-  type        = list(any)
-  default     = []
-}
-
 variable "pipeline_kcl_write_max_capacity" {
   description = "Increasing this is important to increase throughput at very high pipeline volumes"
   type        = number
@@ -131,4 +103,26 @@ variable "cloudwatch_logs_retention_days" {
   description = "The length of time in days to retain logs for"
   default     = 7
   type        = number
+}
+
+variable "pg_db_name" {
+  type = string
+}
+
+variable "pg_db_username" {
+  type = string
+}
+
+variable "pg_db_password" {
+  type = string
+  sensitive = true
+}
+
+variable "pg_db_publicly_accessible" {
+  type = bool
+}
+
+variable "pg_db_ip_allowlist" {
+  type = list(any)
+  default = []
 }

@@ -39,15 +39,15 @@ iglu_super_api_key = "00000000-0000-0000-0000-000000000000"
 # igluctl static push --public schemas/ http://CHANGE-TO-MY-IGLU-URL.elb.amazonaws.com 00000000-0000-0000-0000-000000000000
 
 # --- Snowplow Postgres Loader
-pipeline_db_name     = "snowplow"
-pipeline_db_username = "snowplow"
+pg_db_name     = "snowplow"
+pg_db_username = "snowplow"
 # Change and keep this secret!
-pipeline_db_password = "Hell0W0rld!2"
+pg_db_password = "Hell0W0rld!2"
 # IP ranges that you want to query the Pipeline Postgres RDS from
 # Note: this exposes your data to the internet - take care to ensure your allowlist is strict enough
 #       or provide a way to access the database through the VPC instead
-pipeline_db_publicly_accessible = true
-pipeline_db_ip_allowlist        = ["999.999.999.999/32", "888.888.888.888/32"]
+pg_db_publicly_accessible = true
+pg_db_ip_allowlist        = ["999.999.999.999/32", "888.888.888.888/32"]
 
 # Controls the write throughput of the KCL tables maintained by the various consumers deployed
 pipeline_kcl_write_max_capacity = 50
