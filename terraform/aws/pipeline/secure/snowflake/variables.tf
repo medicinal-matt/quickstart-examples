@@ -111,39 +111,48 @@ variable "cloudwatch_logs_retention_days" {
 }
 
 variable "sf_operator_username" {
-  type = string
+  description = "Snowflake username to pass Snowflake TF provider"
+  type        = string
 }
 
 variable "sf_account" {
-  type = string
+  description = "Snowflake account to use"
+  type        = string
 }
 
 variable "sf_region" {
-  type = string
+  description = "Region of Snowflake account"
+  type        = string
 }
 
 variable "sf_operator_user_role" {
-  type = string
+  description = "Snowflake user role to pass Snowflake TF provider"
+  type        = string
 }
 
 variable "sf_private_key_path" {
-  type = string
+  description = "Private key for accessing Snowflake"
+  type        = string
 }
 
 variable "sf_db_name" {
-  type = string
+  description = "The name of the database to connect to"
+  type        = string
 }
 
 variable "sf_wh_name" {
-  type = string
+  description = "The name of the Snowflake warehouse to connect to"
+  type        = string
 }
 
 variable "sf_loader_password" {
-  type = string
-  sensitive = true
+  description = "The password to use to connect to the database"
+  type        = string
+  sensitive   = true
 }
 
 variable "shredder_window_period" {
-  type = string
-  default = "5 minutes"
+  description = "Frequency to emit shredding finished message - 5,10,15,20,30,60 etc minutes"
+  type        = string
+  default     = "5 minutes"
 }

@@ -1,6 +1,5 @@
 output "collector_dns_name" {
-  description = "The ALB dns name for the Pipeline Collector"
-  value       = module.collector_lb.dns_name
+  value = module.collector_lb.dns_name
 }
 
 output "ssh_key_name" {

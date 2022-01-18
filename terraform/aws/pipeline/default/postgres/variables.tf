@@ -106,23 +106,28 @@ variable "cloudwatch_logs_retention_days" {
 }
 
 variable "pg_db_name" {
-  type = string
+  description = "The name of the database to connect to"
+  type        = string
 }
 
 variable "pg_db_username" {
-  type = string
+  description = "The username to use to connect to the database"
+  type        = string
 }
 
 variable "pg_db_password" {
-  type = string
-  sensitive = true
+  description = "The password to use to connect to the database"
+  type        = string
+  sensitive   = true
 }
 
 variable "pg_db_publicly_accessible" {
-  type = bool
+  description = "Whether to make the Postgres RDS instance accessible over the internet"
+  type        = bool
 }
 
 variable "pg_db_ip_allowlist" {
-  type = list(any)
-  default = []
+  description = "An optional list of CIDR ranges to allow traffic from"
+  type        = list(any)
+  default     = []
 }

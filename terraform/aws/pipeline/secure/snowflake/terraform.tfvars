@@ -41,14 +41,16 @@ iglu_super_api_key = "00000000-0000-0000-0000-000000000000"
 # cd iglu-central
 # igluctl static push --public schemas/ http://CHANGE-TO-MY-IGLU-URL.elb.amazonaws.com 00000000-0000-0000-0000-000000000000
 
-# --- Snowplow Postgres Loader
-pipeline_db_name     = "snowplow"
-pipeline_db_username = "snowplow"
+# --- Snowplow Snowflake Loader
+sf_operator_username  = "operator"
+sf_account            = "account-name"
+sf_region             = "us-west-2"
+sf_operator_user_role = "operator-role"
+sf_private_key_path   = "/path/to/private/key"
+sf_db_name            = "DATABASE_NAME"
+sf_wh_name            = "WAREHOUSE_NAME"
 # Change and keep this secret!
-pipeline_db_password = "Hell0W0rld!2"
-# IP ranges that you want to query the Pipeline Postgres RDS from
-# Note: these IP ranges will need to be internal to your VPC like from a Bastion Host
-pipeline_db_ip_allowlist = ["999.999.999.999/32", "888.888.888.888/32"]
+sf_loader_password    = "Hell0W0rld!2"
 
 # Controls the write throughput of the KCL tables maintained by the various consumers deployed
 pipeline_kcl_write_max_capacity = 50
