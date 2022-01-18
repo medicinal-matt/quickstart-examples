@@ -55,11 +55,12 @@ module "stream_shredder_enriched" {
   ssh_key_name     = module.common.ssh_key_name
   ssh_ip_allowlist = var.ssh_ip_allowlist
 
-  stream_name     = module.common.enriched_stream_name
-  shredded_output = "${var.s3_bucket_name}/${var.s3_bucket_object_prefix}/transformed/good"
-  window_period   = var.shredder_window_period
-  sqs_queue_name  = aws_sqs_queue.message_queue.name
-  format_type = "widerow"
+  stream_name             = module.common.enriched_stream_name
+  s3_bucket_name          = var.s3_bucket_name
+  s3_bucket_object_prefix = "${var.s3_bucket_object_prefix}transformed/good"
+  window_period           = var.shredder_window_period
+  sqs_queue_name          = aws_sqs_queue.message_queue.name
+  format_type             = "widerow"
 
   custom_iglu_resolvers = module.common.custom_iglu_resolvers
 
@@ -86,11 +87,12 @@ module "stream_shredder_bad" {
   ssh_key_name     = module.common.ssh_key_name
   ssh_ip_allowlist = var.ssh_ip_allowlist
 
-  stream_name     = module.common.bad_stream_name
-  shredded_output = "${var.s3_bucket_name}/${var.s3_bucket_object_prefix}/transformed/bad"
-  window_period   = var.shredder_window_period
-  sqs_queue_name  = aws_sqs_queue.message_queue.name
-  format_type = "widerow"
+  stream_name             = module.common.bad_stream_name
+  s3_bucket_name          = var.s3_bucket_name
+  s3_bucket_object_prefix = "${var.s3_bucket_object_prefix}transformed/bad"
+  window_period           = var.shredder_window_period
+  sqs_queue_name          = aws_sqs_queue.message_queue.name
+  format_type             = "widerow"
 
   custom_iglu_resolvers = module.common.custom_iglu_resolvers
 
