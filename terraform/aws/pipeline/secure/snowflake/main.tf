@@ -19,6 +19,7 @@ module "common" {
   prefix = var.prefix
   vpc_id = var.vpc_id
   public_subnet_ids = var.public_subnet_ids
+  private_subnet_ids = var.private_subnet_ids
 
   s3_bucket_name = var.s3_bucket_name
   s3_bucket_deploy = var.s3_bucket_deploy
@@ -50,7 +51,7 @@ module "stream_shredder_enriched" {
 
   name = "${var.prefix}-stream-shredder-enriched-server"
   vpc_id = var.vpc_id
-  subnet_ids = var.public_subnet_ids
+  subnet_ids = var.private_subnet_ids
 
   ssh_key_name     = module.common.ssh_key_name
   ssh_ip_allowlist = var.ssh_ip_allowlist
@@ -82,7 +83,7 @@ module "stream_shredder_bad" {
 
   name = "${var.prefix}-stream-shredder-bad-server"
   vpc_id = var.vpc_id
-  subnet_ids = var.public_subnet_ids
+  subnet_ids = var.private_subnet_ids
 
   ssh_key_name     = module.common.ssh_key_name
   ssh_ip_allowlist = var.ssh_ip_allowlist
@@ -118,7 +119,7 @@ module "snowflake_loader" {
   # Some of the Snowflake resources are having problem when hypen is used in the name.
   name = replace(var.prefix, "-", "_")
   vpc_id = var.vpc_id
-  subnet_ids = var.public_subnet_ids
+  subnet_ids = var.private_subnet_ids
 
   ssh_key_name = module.common.ssh_key_name
   ssh_ip_allowlist = var.ssh_ip_allowlist
