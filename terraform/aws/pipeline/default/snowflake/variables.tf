@@ -105,6 +105,12 @@ variable "cloudwatch_logs_retention_days" {
   type        = number
 }
 
+variable "loader_enabled" {
+  description = "Whether loader should be enabled or not"
+  default     = true
+  type        = bool
+}
+
 variable "sf_operator_username" {
   description = "Snowflake username to pass Snowflake TF provider"
   type        = string
