@@ -82,8 +82,6 @@ module "snowflake_loader" {
   # TODO: Change source when Snowflake Loader terraform module is released
   source = "../../../../../../terraform-snowflake-loader"
 
-  loader_enabled = var.loader_enabled
-
   # Some of the Snowflake resources are having problem when hypen is used in the name.
   name = replace(var.prefix, "-", "_")
   vpc_id = var.vpc_id
