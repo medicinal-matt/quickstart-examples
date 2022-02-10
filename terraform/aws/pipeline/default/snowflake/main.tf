@@ -6,11 +6,11 @@ provider "snowflake" {
   private_key_path = var.sf_private_key_path
 }
 
-# TODO: Activate encryption
 resource "aws_sqs_queue" "message_queue" {
   content_based_deduplication = true
   name                        = "${var.prefix}-sf-loader.fifo"
   fifo_queue                  = true
+  kms_master_key_id           = "alias/aws/sqs"
 }
 
 module "common" {
