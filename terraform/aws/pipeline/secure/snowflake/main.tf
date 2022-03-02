@@ -59,7 +59,7 @@ module "stream_shredder_enriched" {
   stream_name             = module.common.enriched_stream_name
   s3_bucket_name          = var.s3_bucket_name
   s3_bucket_object_prefix = "${var.s3_bucket_object_prefix}transformed/good"
-  window_period           = var.shredder_window_period
+  window_period_min       = var.shredder_window_period_min
   sqs_queue_name          = aws_sqs_queue.message_queue.name
   format_type             = "widerow"
 

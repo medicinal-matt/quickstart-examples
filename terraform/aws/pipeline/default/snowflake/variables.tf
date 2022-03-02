@@ -146,8 +146,8 @@ variable "sf_loader_password" {
   sensitive   = true
 }
 
-variable "shredder_window_period" {
+variable "shredder_window_period_min" {
   description = "Frequency to emit shredding finished message - 5,10,15,20,30,60 etc minutes"
-  type        = string
-  default     = "5 minutes"
+  type        = number
+  default     = 5
 }
